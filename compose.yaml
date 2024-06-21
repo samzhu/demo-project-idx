@@ -1,0 +1,18 @@
+services:
+    
+  ollama:
+    image: ollama/ollama:0.1.43
+    ports:
+      - 11434:11434
+    volumes:
+      - ollama:/root/.ollama
+      - ./dev-resources/ollama/entrypoint.sh:/entrypoint.sh
+    labels:
+      org.springframework.boot.service-connection: ollama
+    container_name: ollama
+    tty: true
+    restart: unless-stopped
+    entrypoint: ["sh", "-c", "ollama serve & sleep 10 && ollama pull llama3 && ollama pull nomic-embed-text && wait"]
+
+volumes:
+  ollama: {}
