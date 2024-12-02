@@ -24,21 +24,21 @@
       previews = {
         app = {
           command = [
-            "./gradlew"
+            "gradle"
             "bootRun"
             "--args='--server.port=$PORT'"
           ];
           env = {
             PORT = "8080";
           };
-          manager = "gradle";
+          manager = "web";
         };
       };
     };
 
     workspace = {
       onCreate = {
-        setup = "chmod +x gradlew && ./gradlew clean build";
+        setup = "gradle clean build";
         default.openFiles = [
           "README.md"
         ];
