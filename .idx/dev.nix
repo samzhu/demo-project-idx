@@ -27,25 +27,22 @@
           command = [
             "./gradlew"
             "bootRun"
-            "--args='--server.port=$PORT'"  # 建議加入，以確保 port 設定被正確傳遞
+            "--args='--server.port=$PORT'"
           ];
           env = {
             PORT = "8080";
           };
-          manager = "web";
+          manager = "gradle";
         };
       };
     };
 
     workspace = {
       onCreate = {
-        setup = "chmod +x gradlew && ./gradlew clean build";  # 確保 gradlew 可執行
+        setup = "chmod +x gradlew && ./gradlew clean build";
         default.openFiles = [
           "README.md"
         ];
-      };
-      onStart = {
-        runApp = "./gradlew bootRun";  # PORT 已經在 previews 中設定了
       };
     };
   };
