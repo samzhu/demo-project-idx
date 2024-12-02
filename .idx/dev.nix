@@ -9,7 +9,7 @@
   ];
   # Sets environment variables in the workspace
   env = {
-    JAVA_HOME = "${pkgs.jdk21_headless}";
+    # JAVA_HOME = "${pkgs.jdk21_headless}";
   };
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
