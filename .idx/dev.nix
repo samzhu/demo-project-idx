@@ -2,7 +2,7 @@
 # see: https://developers.google.com/idx/guides/customize-idx-env
 { pkgs, ... }: {
   # Which nixpkgs channel to use.
-  channel = "stable-24.05"; # or "unstable"
+  channel = "stable-23.11"; # or "unstable"
   # Use https://search.nixos.org/packages to find packages
   packages = [
     pkgs.jdk21_headless
@@ -22,7 +22,12 @@
     previews = {
       enable = true;
       previews = {
-        app = {
+        web = {  # 改為 "web"，這是必要的命名
+          command = [  # 加入 command，即使是空的也需要
+            "gradle"
+            "bootRun"
+            "--args='--server.port=$PORT'"
+          ];
           env = {
             PORT = "8080";
           };
