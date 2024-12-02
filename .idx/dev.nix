@@ -23,11 +23,6 @@
       enable = true;
       previews = {
         app = {
-          command = [
-            "gradle"
-            "bootRun"
-            "--args='--server.port=$PORT'"
-          ];
           env = {
             PORT = "8080";
           };
