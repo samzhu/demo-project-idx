@@ -30,7 +30,7 @@
             "--args='--server.port=$PORT'"  # 建議加入，以確保 port 設定被正確傳遞
           ];
           env = {
-            PORT = "8080"
+            PORT = "8080";
           };
           manager = "web";
         };
